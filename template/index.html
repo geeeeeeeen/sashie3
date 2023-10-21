@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>挿絵生成</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+  </head>
+  <body>
+    <div class="container mt-5 text-center">
+      <h1 class="display-4 creative-font">挿絵生成</h1>
+      <form id="image-form" method="POST" class="mt-5 form-box">
+        <!-- Novel Prompt -->
+        <div class="form-group">
+          <label for="prompt" class="creative-font">文章を入力:</label>
+          <textarea id="prompt" name="prompt" class="form-control creative-border" rows="5" placeholder="あなたの創作した文章でも、あなたの好きな文章でも"></textarea>
+        </div>
+        <!-- Character Features -->
+        <div class="form-group">
+          <label for="features" class="creative-font">出力したいキャラクターや風景の特徴を追加:</label>
+          <input type="text" id="features" name="features" class="form-control creative-border" placeholder="キャラの特徴、風景など.">
+        </div>
+        <!-- Genre Selection -->
+<!-- Genre Selection -->
+     <div class="form-group">
+      <label for="genre" class="creative-font">画像のタイプ:</label>
+      <select id="genre" name="genre" class="form-control creative-border">
+        <option value="normal">Normal</option>
+        <option value="pokemon">Pokemon</option>
+        <option value="pixelart">PIXEL ART</option>
+        <option value="gundam">Gundam</option> <!-- 追加された選択肢 -->
+      </select>
+     </div>
+
+        <button type="submit" class="btn btn-primary creative-button">生成する</button>
+      </form>
+      <div id="images" class="image-area mt-5">
+        <!-- (images will be inserted here) -->
+      </div>
+    </div>
+    <script src="/static/js/custom.js" defer></script>
+  </body>
+</html>
+
+
+
+
+
+
+

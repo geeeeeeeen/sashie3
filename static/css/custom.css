@@ -1,0 +1,42 @@
+body {
+  background-color: #FAF3E0;
+  font-family: 'Arial', sans-serif;
+}
+
+.creative-font {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #2C2C54;
+}
+
+.creative-border {
+  border: 2px solid #6A057F;
+  border-radius: 5px;
+}
+
+.creative-button {
+  background-color: #AB83A1;
+  border: none;
+  color: white;
+}
+
+.form-box {
+  background-color: #EAF0CE;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.image-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.generated-image {
+  width: 30%;
+  transition: all 0.3s ease;
+}
+
+.zoom {
+  transform: scale(1.1);
+}
