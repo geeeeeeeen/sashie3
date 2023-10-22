@@ -8,33 +8,13 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from datetime import datetime
 
-app = Flask(__name__, static_folder='static')
-csrf = CSRFProtect(app)
-
-# azureprojectの選択
-# If RUNNING_IN_PRODUCTION is defined as an environment variable, then we're running on Azure
-if not 'RUNNING_IN_PRODUCTION' in os.environ:
-   # Local development, where we'll use environment variables.
-   print("Loading config.development and environment variables from .env file.")
-   app.config.from_object('azureproject.development')
-else:
-   # Production, we don't load environment variables from .env file but add them as environment variables in Azure.
-   print("Loading config.production.")
-   app.config.from_object('azureproject.production')
-
-with app.app_context():
-    app.config.update(
-        SQLALCHEMY_DATABASE_URI=app.config.get('DATABASE_URI'),
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    )
-
 # 環境変数からAPIトークンとモデルIDを読み込む
 auth_token = os.environ.get("huggingface-auth-token")
 model_id = os.environ.get("huggingface-model-id")
 
 # AWSの認証情報を環境変数から読み込む
-aws_access_key_id = os.environ.get("aws_access_key_id")
-aws_secret_access_key = os.environ.get("aws_secret_access_key")
+aws_access_key_id = os.environ.get("aws-access-key-id")
+aws_secret_access_key = os.environ.get("aws-secret-access-key")
 
 # AWSサービスのクライアントの初期化
 comprehend = boto3.client('comprehend', region_name='ap-northeast-1', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
